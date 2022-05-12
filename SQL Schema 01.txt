@@ -1,0 +1,142 @@
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bookstore          |
+| bookstore0         |
+| bookstore1         |
+| ecommerce          |
+| fooditems          |
+| foodrecipe         |
+| information_schema |
+| my_database        |
+| my_project         |
+| mysql              |
+| performance_schema |
+| powerstar          |
+| product_database   |
+| recipes            |
+| recipies           |
+| sakila             |
+| sys                |
+| test_table         |
+| world              |
++--------------------+
+19 rows in set (0.16 sec)
+
+mysql> use recipies;
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_recipies |
++--------------------+
+| admin              |
+| recipie            |
+| review             |
+| user               |
++--------------------+
+4 rows in set (0.10 sec)
+
+mysql> desc admin;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| password | varchar(255) | YES  |     | NULL    |                |
+| username | varchar(255) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+3 rows in set (0.05 sec)
+
+mysql> select * from admin;
++----+------------+-------------------+
+| id | password   | username          |
++----+------------+-------------------+
+|  1 | ishu345    | ishu@gmail.com    |
+|  2 | snehal567  | snehal@gmail.com  |
+|  3 | kavitha127 | kavitha@gmail.com |
+|  4 | 1234       | ramani            |
+|  5 | likki1234  | likitha@gmail.com |
++----+------------+-------------------+
+5 rows in set (0.04 sec)
+
+mysql> desc recipie;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| id            | int          | NO   | PRI | NULL    | auto_increment |
+| Recipie Name  | varchar(255) | YES  |     | NULL    |                |
+| Cooking_Steps | longtext     | YES  |     | NULL    |                |
+| Category      | varchar(255) | YES  |     | NULL    |                |
+| imgurl        | varchar(255) | YES  |     | NULL    |                |
+| ingrediants   | varchar(255) | YES  |     | NULL    |                |
+| name          | varchar(255) | YES  |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.01 sec)
+
+mysql> select * from recipie;
++----+-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------+---------------------------------------------+-----------------------+
+| id | Recipie Name          | Cooking_Steps                                                                                                                               | Category | imgurl                                                                                                                | ingrediants                                 | name                  |
++----+-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------+---------------------------------------------+-----------------------+
+|  1 | Mushroom-pizza        |  Roast the mushroom with butter Add some spices.Put some chilli flakes, next add some red sause.                                            | Veg      | https://b.zmtcdn.com/data/pictures/0/19718900/0a23465fe4cdd399df0019d89c7d2493.jpg                                    | Tomatoes_spices_Mushroom_cream              | Mushroom-pizza        |
+|  2 |  Burger               | Take a bun cut into two slices cut the ingrediants of Onion, Tomato , capsium.Make roast of chicken tikka, Add some cheese,ready to eat     | Non-Veg  | https://assets.epicurious.com/photos/5c745a108918ee7ab68daf79/5:4/w_3129,h_2503,c_limit/Smashburger-recipe-120219.jpg |  Tomato_capsicum_Onion_Cheese_chickenTikka  |  Burger               |
+|  3 | Tandoori chicken      | Add Some butter , chilli powder,paprika,lemon juice , paste the masala into the chicken and roast the chicken with little bit of butter     | Non-Veg  | https://www.jocooks.com/wp-content/uploads/2012/03/tandoori-chicken-1-11-500x500.jpg                                  | chicken_masalas_onion                       | Tandoori chicken      |
+|  4 | Mutton Biriyani       | Mutton Biryani is a royal dish with beautifully spiced and fragrant layers of biryani rice centered ...we add Spices, mutton,onion,Tomatoes | Non-Veg  | https://www.cubesnjuliennes.com/wp-content/uploads/2021/03/Best-Mutton-Biryani-Recipe.jpg                             | Mutton_masalas_tomatoes_onion_Rice          | Mutton Biriyani       |
+|  5 | Garlic Butter-Nan     | make pan add some butter roll the maida put it on pan toast                                                                                 | Veg      | https://www.cubesnjuliennes.com/wp-content/uploads/2018/03/Garlic-Butter-nan-recipe.jpg                               | Garlic Butter-Nan                           | Garlic Butter-Nan     |
+|  6 | Panner butter masala  | Add some onion.tomatoes, spices panner and some butter, add fresh cream                                                                     | Veg      | https://myfoodstory.com/wp-content/uploads/2021/07/restaurant-style-paneer-butter-masala-2.jpg                        | panner_butter_chilli_cream                  | Panner butter masala  |
+|  7 | chicken-lollypop      | Add some spices and some chilli toast it in pan                                                                                             | Non-Veg  | https://thegastronomicbong.com/wp-content/uploads/2020/07/Chicken-lollipop-scaled.jpg                                 | chicken_masalas_curd                        | chicken-lollypop      |
++----+-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------+---------------------------------------------+-----------------------+
+7 rows in set (0.04 sec)
+
+mysql> select * from review;
++----+-------------+--------+---------+
+| id | recipiename | rating | review  |
++----+-------------+--------+---------+
+|  1 | paneer      |      5 | good    |
+|  2 | egg         |      5 | good    |
+|  3 | kheema      |      3 | average |
+|  4 | Kulfi       |      3 | average |
++----+-------------+--------+---------+
+4 rows in set (0.01 sec)
+
+mysql> desc review;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| recipiename | varchar(255) | YES  |     | NULL    |                |
+| rating      | int          | NO   |     | NULL    |                |
+| review      | varchar(255) | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> desc user;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| email    | varchar(255) | YES  |     | NULL    |                |
+| name     | varchar(255) | YES  |     | NULL    |                |
+| password | varchar(255) | YES  |     | NULL    |                |
+| phone    | bigint       | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.04 sec)
+
+mysql> select * from user;
++----+-------------------+---------+------------+------------+
+| id | email             | name    | password   | phone      |
++----+-------------------+---------+------------+------------+
+|  1 | ishu@gmail.com    | ishu    | ishu345    | 9000089781 |
+|  2 | snehal@gmail.com  | snehal  | snehal567  |  899089781 |
+|  3 | kavitha@gmail.com | kavitha | kavitha127 | 3632353230 |
+|  4 | vijay@gmail.com   | Vijay   | Vijay@100  | 1212127712 |
+|  5 | Damini@gmail.com  | Damini  | Dam@100    | 1212121212 |
+|  6 | saket@gmail.com   | saket   | Sak@100    | 2121212121 |
+|  7 | ramani@gmail.com  | ramani  | 123        |  123456789 |
+|  8 | vijay@gmail.com   | vijay   | vijay123   |  123456880 |
+|  9 | vineet@gmail.com  | vineet  | Vin@100    | 2122232425 |
+| 10 | ajay@gmail.com    | ajay    | Ajay@100   | 5454545454 |
++----+-------------------+---------+------------+------------+
+10 rows in set (0.00 sec)
+
+mysql>
